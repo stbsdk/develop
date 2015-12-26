@@ -1,0 +1,27 @@
+{
+	"name": "stb-develop",
+	"version": "1.3.0",
+	"description": "Application development tools and mechanisms.",
+	"author": {
+		"name": "Stanislav Kalashnik",
+		"email": "sk@infomir.eu"
+	},
+	"repository": "stbsdk/app",
+	"scripts": {
+		"lint": "eslint *.js",
+		"jsdoc": "jsdoc --destination doc *.js readme.md"
+	},
+	"dependencies": {},
+	"devDependencies": {},
+	"keywords": [
+		"stb",
+		"sdk",
+		"device",
+		"tv",
+		"devkit",
+		"framework",
+		"app",
+		"core"
+	],
+	"license": "GPL-3.0"
+}
