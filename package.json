@@ -11,17 +11,12 @@
         "lint": "eslint *.js",
         "jsdoc": "jsdoc --destination doc *.js readme.md"
     },
-    "dependencies": {},
-    "devDependencies": {},
     "keywords": [
         "stb",
-        "sdk",
-        "device",
-        "tv",
-        "devkit",
+        "stbsdk",
         "framework",
-        "app",
-        "core"
+        "develop",
+        "tools"
     ],
     "license": "GPL-3.0"
 }
