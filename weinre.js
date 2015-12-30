@@ -8,14 +8,13 @@
 
 'use strict';
 
-var tag     = require('spa-dom').tag,
-    util    = require('util'),
-    //storage = require('./storage'),
-    config  = require('../../config/weinre');
+var tag    = require('spa-dom').tag,
+    util   = require('util'),
+    config = require('../../config/weinre');
 
 
 // web inspector is allowed only without SpyJS
-if ( config.active /*&& !storage.get('spyjs.active')*/ ) {
+if ( config.active && !localStorage.getItem('spyjs.active') ) {
     // load external script
     document.head.appendChild(tag('script', {
         type: 'text/javascript',

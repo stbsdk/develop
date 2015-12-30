@@ -7,20 +7,44 @@
 
 /* global gSTB:false */
 
+var app     = require('stb-app'),
+    metrics = require('../../config/metrics');
+
+
 // shims
 require('stb-shim-bind');
 require('stb-shim-classlist');
 require('stb-shim-frame');
 
+// set global mode
+app.data.debug = true;
+
+// STB device or emulation?
+app.data.host = !!(window.gSTB || (window.parent && window.parent.gSTB));
+
+// STB logging
+window.debug = app.data.host ? require('./debug') : require('spa-develop/debug');
+
+// universal storage
+window.localStorage = window.stbStorage;
+
+// apply screen size, position, margins and styles
+app.setScreen(
+    metrics[localStorage.getItem('screen.height')] ||
+    metrics[screen.height] ||
+    metrics[720]
+);
+
 // inherit SPA tools
 require('spa-develop/static');
 
-// STB logging
-window.debug = window.gSTB && gSTB.Debug ? require('./debug') : require('spa-develop/debug');
-
 // STB tools
-require('./weinre');
-//require('./proxy');
+if ( app.data.host ) {
+    // web inspector
+    require('./weinre');
+}
+
+require('./proxy');
 
 // the application itself
 // "js" directory is resolved by webpack to
