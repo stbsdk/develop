@@ -15,6 +15,7 @@ require('spa-develop/static');
 
 // STB tools
 //require('./proxy');
+require('./debug');
 require('./weinre');
 
 // the application itself
