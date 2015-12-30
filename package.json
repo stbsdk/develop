@@ -11,6 +11,12 @@
         "lint": "eslint *.js",
         "jsdoc": "jsdoc --destination doc *.js readme.md"
     },
+    "dependencies": {
+        "spa-develop": "spasdk/develop",
+        "stb-shim-bind": "stbsdk/shim-bind",
+        "stb-shim-classlist": "stbsdk/shim-classlist",
+        "stb-shim-frame": "stbsdk/shim-frame"
+    },
     "keywords": [
         "stb",
         "stbsdk",
