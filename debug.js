@@ -17,17 +17,6 @@ var //host   = require('../app').data.host,
     debug  = require('spa-develop/debug');
 
 
-/** @global */
-module.exports = window.debug = debug;
-
-
-// it's a browser
-if ( !window.gSTB || !gSTB.Debug ) {
-    // no need to redefine
-    return;
-}
-
-
 /**
  * Check condition and warn if not match.
  *
@@ -132,3 +121,7 @@ debug.event = function ( data ) {
     }
     gSTB.Debug(text);
 };
+
+
+// public
+module.exports = debug;

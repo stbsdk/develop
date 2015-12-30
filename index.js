@@ -5,6 +5,8 @@
 
 'use strict';
 
+/* global gSTB:false */
+
 // shims
 require('stb-shim-bind');
 require('stb-shim-classlist');
@@ -13,10 +15,15 @@ require('stb-shim-frame');
 // inherit SPA tools
 require('spa-develop/static');
 
+// STB logging
+if ( window.gSTB && gSTB.Debug ) {
+    // need to redefine
+    window.debug = require('./debug');
+}
+
 // STB tools
-//require('./proxy');
-require('./debug');
 require('./weinre');
+//require('./proxy');
 
 // the application itself
 // "js" directory is resolved by webpack to
