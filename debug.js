@@ -13,8 +13,8 @@
 
 var //host   = require('../app').data.host,
     //config = require('../../../../config/logger'),
-    util   = require('util'),
-    debug  = require('spa-develop/debug');
+    util  = require('util'),
+    debug = require('spa-develop/debug');
 
 
 /**

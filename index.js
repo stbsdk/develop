@@ -16,10 +16,7 @@ require('stb-shim-frame');
 require('spa-develop/static');
 
 // STB logging
-if ( window.gSTB && gSTB.Debug ) {
-    // need to redefine
-    window.debug = require('./debug');
-}
+window.debug = window.gSTB && gSTB.Debug ? require('./debug') : require('spa-develop/debug');
 
 // STB tools
 require('./weinre');
