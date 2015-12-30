@@ -15,7 +15,7 @@ require('spa-develop/static');
 
 // STB tools
 //require('./proxy');
-//require('./weinre');
+require('./weinre');
 
 // the application itself
 // "js" directory is resolved by webpack to
