@@ -5,8 +5,6 @@
 
 'use strict';
 
-/* global gSTB:false */
-
 var app     = require('stb-app'),
     metrics = require('../../config/metrics');
 
@@ -15,9 +13,6 @@ var app     = require('stb-app'),
 require('stb-shim-bind');
 require('stb-shim-classlist');
 require('stb-shim-frame');
-
-// set global mode
-app.data.debug = true;
 
 // STB device or emulation?
 app.data.host = !!(window.gSTB || (window.parent && window.parent.gSTB));
