@@ -45,6 +45,7 @@ if ( app.data.host ) {
 }
 
 require('./proxy');
+require('./events');
 
 // the application itself
 // "js" directory is resolved by webpack to
