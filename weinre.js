@@ -10,7 +10,7 @@
 
 var tag    = require('spa-dom').tag,
     util   = require('util'),
-    config = require('../../config/weinre');
+    config = {} /*require('../../config/weinre')*/;
 
 
 // web inspector is allowed only without SpyJS

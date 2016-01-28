@@ -13,7 +13,7 @@
 
 var host   = require('stb-app').data.host,
     util   = require('util'),
-    config = require('../../config/proxy');
+    config = {} /*require('../../config/proxy')*/;
 
 
 /**

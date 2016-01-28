@@ -38,7 +38,7 @@ function changeScreenDimension ( width, height ) {
         document.body.style.display = 'none';
 
         // apply new metrics
-        app.setScreen(require('../../config/metrics')[height]);
+        app.setScreen(require('../../src/js/metrics')[height]);
 
         // restore visibility
         document.body.style.display = '';
