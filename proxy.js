@@ -32,11 +32,11 @@ function initHost () {
     // redefine logging
     window.proxy.log = function log ( type, time, status, message, params ) {
         gSTB.Debug(util.format('[%s]\t%s\t%s\t%s\t%s',
-            type.grey,
-            config.name.magenta,
-            time.toString().grey,
-            (status ? message.green : message.red),
-            (params ? JSON.stringify(params).grey : '')
+            type,
+            config.name,
+            time,
+            (status ? message : message),
+            (params ? JSON.stringify(params) : '')
         ));
     };
 }

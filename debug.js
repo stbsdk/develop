@@ -25,7 +25,7 @@ var //host   = require('../app').data.host,
  */
 debug.assert = function ( condition, title ) {
     if ( !condition ) {
-        gSTB.Debug(('Assertion failed: ' + title).red);
+        gSTB.Debug(('Assertion failed: ' + title));
     }
 };
 
@@ -58,7 +58,7 @@ debug.info = function ( data, title ) {
         data = data.nodeName ? data.outerHTML : JSON.stringify(data, null, 4);
     }
     // combine all together and print result
-    gSTB.Debug((type === 'error' ? type.red : type.green) + '\t' + (title ? title.bold + ':\t'.green : '') + data);
+    gSTB.Debug((type === 'error' ? type : type) + '\t' + (title ? title + ':\t' : '') + data);
 };
 
 
@@ -81,7 +81,7 @@ debug.inspect = function ( data, depth ) {
 debug.event = function ( data ) {
     var type  = data.type.toUpperCase(),
         color = type === 'ERROR' ? 'red' : 'green',
-        text  = ('Event ' + type[color]).bold;
+        text  = ('Event ' + type[color]);
 
     switch ( type ) {
         case 'KEYDOWN':
@@ -89,14 +89,14 @@ debug.event = function ( data ) {
                 '\tctrl' [data.ctrlKey  ? 'green' : 'grey'] +
                 ' alt'  [data.altKey   ? 'green' : 'grey'] +
                 ' shift'[data.shiftKey ? 'green' : 'grey'] +
-                '\t' + data.keyCode + '\t' + data.code + '\t' + (data.keyIdentifier || '').green;
+                '\t' + data.keyCode + '\t' + data.code + '\t' + (data.keyIdentifier || '');
             break;
         case 'KEYPRESS':
             text = text +
                 '\tctrl' [data.ctrlKey  ? 'green' : 'grey'] +
                 ' alt'  [data.altKey   ? 'green' : 'grey'] +
                 ' shift'[data.shiftKey ? 'green' : 'grey'] +
-                '\t' + data.keyCode + '\t' + (data.keyIdentifier || '').green + '\t' + String.fromCharCode(data.keyCode);
+                '\t' + data.keyCode + '\t' + (data.keyIdentifier || '') + '\t' + String.fromCharCode(data.keyCode);
             break;
         case 'MOUSEMOVE':
             text = text +
