@@ -26,7 +26,10 @@ var util    = require('util'),
  */
 function changeScreenDimension ( width, height ) {
     // check if it's necessary
-    if ( Number(localStorage.getItem('screen.height')) !== height ) {
+    if ( Number(localStorage.getItem('screen.height')) === height ) {
+        // not really
+        debug.log('no resolution change: new and current values are identical', 'red');
+    } else {
         // yes
         debug.log(util.format('switch to %sx%s', width, height), 'red');
 
@@ -42,9 +45,6 @@ function changeScreenDimension ( width, height ) {
 
         // restore visibility
         document.body.style.display = '';
-    } else {
-        // not really
-        debug.log('no resolution change: new and current values are identical', 'red');
     }
 }
 

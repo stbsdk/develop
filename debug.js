@@ -86,29 +86,29 @@ debug.event = function ( data ) {
     switch ( type ) {
         case 'KEYDOWN':
             text = text +
-                '\tctrl' [data.ctrlKey  ? 'green' : 'grey'] +
-                ' alt'  [data.altKey   ? 'green' : 'grey'] +
+                '\tctrl'[data.ctrlKey  ? 'green' : 'grey'] +
+                ' alt'[data.altKey   ? 'green' : 'grey'] +
                 ' shift'[data.shiftKey ? 'green' : 'grey'] +
                 '\t' + data.keyCode + '\t' + data.code + '\t' + (data.keyIdentifier || '');
             break;
         case 'KEYPRESS':
             text = text +
-                '\tctrl' [data.ctrlKey  ? 'green' : 'grey'] +
-                ' alt'  [data.altKey   ? 'green' : 'grey'] +
+                '\tctrl'[data.ctrlKey  ? 'green' : 'grey'] +
+                ' alt'[data.altKey   ? 'green' : 'grey'] +
                 ' shift'[data.shiftKey ? 'green' : 'grey'] +
                 '\t' + data.keyCode + '\t' + (data.keyIdentifier || '') + '\t' + String.fromCharCode(data.keyCode);
             break;
         case 'MOUSEMOVE':
             text = text +
-                '\tctrl' [data.ctrlKey  ? 'green' : 'grey'] +
-                ' alt'  [data.altKey   ? 'green' : 'grey'] +
+                '\tctrl'[data.ctrlKey  ? 'green' : 'grey'] +
+                ' alt'[data.altKey   ? 'green' : 'grey'] +
                 ' shift'[data.shiftKey ? 'green' : 'grey'] +
                 '\t' + data.x + ':' + data.y;
             break;
         case 'CLICK':
             text = text +
-                '\tctrl' [data.ctrlKey  ? 'green' : 'grey'] +
-                ' alt'  [data.altKey   ? 'green' : 'grey'] +
+                '\tctrl'[data.ctrlKey  ? 'green' : 'grey'] +
+                ' alt'[data.altKey   ? 'green' : 'grey'] +
                 ' shift'[data.shiftKey ? 'green' : 'grey'] +
                 '\t' + data.x + ':' + data.y;
             break;

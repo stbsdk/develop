@@ -13,7 +13,7 @@
 
 var host   = require('stb-app').data.host,
     util   = require('util'),
-    config = {} /*require('../../config/proxy')*/;
+    config = {};
 
 
 /**
@@ -47,7 +47,9 @@ function initHost () {
  */
 function initGuest () {
     var ProxyGuest = require('code-proxy/client/guest'),
-        stbNames   = ['dvbManager', 'gSTB', 'pvrManager', 'stbDownloadManager', 'stbStorage', 'stbUpdate', 'stbWebWindow', 'stbWindowMgr', 'timeShift'],
+        stbNames   = [
+            'dvbManager', 'gSTB', 'pvrManager', 'stbDownloadManager', 'stbStorage', 'stbUpdate', 'stbWebWindow', 'stbWindowMgr', 'timeShift'
+        ],
         skipKeys   = ['objectName', 'destroyed', 'deleteLater'];
 
     // init and export to globals
@@ -98,7 +100,7 @@ function initGuest () {
                             }
                             return data;
                         };
-                    }(stbObjName, stbObjKey));
+                    })(stbObjName, stbObjKey);
                 }
             });
         }
