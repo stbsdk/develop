@@ -39,7 +39,7 @@ if ( app.data.host ) {
     require('./weinre');
 }
 
-require('./proxy');
+//require('./proxy');
 require('./events');
 
 // the application itself
