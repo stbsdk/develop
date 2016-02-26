@@ -5,8 +5,8 @@
 
 'use strict';
 
-var app     = require('stb-app'),
-    metrics = require('../../src/js/metrics');
+var app     = require('stb-app');
+    //metrics = require('../../src/js/metrics');
 
 
 // shims
