@@ -13,9 +13,9 @@
     },
     "dependencies": {
         "spa-develop": "spasdk/develop",
-        "stb-shim-bind": "1.*.*",
-        "stb-shim-classlist": "1.*.*",
-        "stb-shim-frame": "1.*.*"
+        "stb-shim-bind": "stbsdk/shim-bind",
+        "stb-shim-classlist": "stbsdk/shim-classlist",
+        "stb-shim-frame": "stbsdk/shim-frame"
     },
     "keywords": [
         "stb",
