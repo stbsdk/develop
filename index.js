@@ -25,9 +25,9 @@ window.localStorage = window.stbStorage;
 
 // apply screen size, position, margins and styles
 app.setScreen(
-    metrics[localStorage.getItem('screen.height')] ||
-    metrics[screen.height] ||
-    metrics[720]
+    app.metrics[localStorage.getItem('screen.height')] ||
+    app.metrics[screen.height] ||
+    app.metrics[720]
 );
 
 // inherit SPA tools
