@@ -17,6 +17,9 @@
         "stb-shim-classlist": "stbsdk/shim-classlist",
         "stb-shim-frame": "stbsdk/shim-frame"
     },
+    "devDependencies": {
+        "stb-eslint-config": "stbsdk/eslint-config"
+    },
     "keywords": [
         "stb",
         "stbsdk",
