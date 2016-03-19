@@ -8,7 +8,7 @@
 
 'use strict';
 
-var data = require('spa-app').data;
+var metrics = require('spa-app').metrics;
 
 
 // public
@@ -52,15 +52,15 @@ module.exports = window.grid = {
         this.ctx = this.$canvas.getContext('2d');
 
         // apply size
-        this.ctx.canvas.width  = data.metrics.width;
-        this.ctx.canvas.height = data.metrics.height;
+        this.ctx.canvas.width  = metrics.width;
+        this.ctx.canvas.height = metrics.height;
 
         // safe zone center
-        this.centerX = data.metrics.availWidth  / 2 + data.metrics.availLeft;
-        this.centerY = data.metrics.availHeight / 2 + data.metrics.availTop;
+        this.centerX = metrics.availWidth  / 2 + metrics.availLeft;
+        this.centerY = metrics.availHeight / 2 + metrics.availTop;
 
-        this.snaps.push({x: data.metrics.availLeft,  y: data.metrics.availTop});
-        this.snaps.push({x: data.metrics.width - data.metrics.availRight, y: data.metrics.height - data.metrics.availBottom});
+        this.snaps.push({x: metrics.availLeft,  y: metrics.availTop});
+        this.snaps.push({x: metrics.width - metrics.availRight, y: metrics.height - metrics.availBottom});
         this.snaps.push({x: this.centerX, y: this.centerY});
 
         this.ctx.lineWidth = this.lineWidth;
@@ -180,18 +180,18 @@ module.exports = window.grid = {
             self = this;  // current execution context
 
         // remove all
-        ctx.clearRect(0, 0, data.metrics.width, data.metrics.height);
+        ctx.clearRect(0, 0, metrics.width, metrics.height);
 
         // safe zone center
         this.drawCross({x: this.centerX, y: this.centerY}, {color: 'grey'});
 
         // draw safe zone borders
         ctx.strokeStyle = 'red';
-        ctx.strokeRect(data.metrics.availLeft, data.metrics.availTop, data.metrics.availWidth, data.metrics.availHeight);
+        ctx.strokeRect(metrics.availLeft, metrics.availTop, metrics.availWidth, metrics.availHeight);
 
         // all clicked crosses
         this.points.forEach(function ( point ) {
-            self.drawCross(point, {color:'green', mark: 5});
+            self.drawCross(point, {color: 'green', mark: 5});
         });
     },
 
@@ -264,10 +264,10 @@ module.exports = window.grid = {
         ctx.beginPath();
         // horizontal line
         ctx.moveTo(0, point.y);
-        ctx.lineTo(data.metrics.width, point.y);
+        ctx.lineTo(metrics.width, point.y);
         // vertical line
         ctx.moveTo(point.x, 0);
-        ctx.lineTo(point.x, data.metrics.height);
+        ctx.lineTo(point.x, metrics.height);
         // draw
         ctx.stroke();
 

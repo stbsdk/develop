@@ -15,10 +15,10 @@ require('stb-shim-classlist');
 require('stb-shim-frame');
 
 // STB device or emulation?
-app.data.host = !!(window.gSTB || (window.parent && window.parent.gSTB));
+app.host = !!(window.gSTB || (window.parent && window.parent.gSTB));
 
 // STB logging
-window.debug = app.data.host ? require('./debug') : require('spa-develop/debug');
+window.debug = app.host ? require('./debug') : require('spa-develop/debug');
 
 // universal storage
 window.localStorage = window.stbStorage;
@@ -34,7 +34,7 @@ app.setScreen(
 require('spa-develop/static');
 
 // STB tools
-if ( app.data.host ) {
+if ( app.host ) {
     // web inspector
     require('./weinre');
 }
