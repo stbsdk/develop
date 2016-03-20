@@ -12,6 +12,7 @@
 
 var util    = require('util'),
     app     = require('spa-app'),
+    stringify = require('cjs-query').stringify,
     //request = require('spa-request'),
     //dom     = require('spa-dom'),
     grid    = require('./grid'),
@@ -25,8 +26,11 @@ var util    = require('util'),
  * @param {number} height screen param
  */
 function changeScreenDimension ( width, height ) {
+    app.query.screenHeight = height;
+    location.search = '?' + stringify(app.query);
+
     // check if it's necessary
-    if ( Number(localStorage.getItem('screen.height')) === height ) {
+    /*if ( Number(localStorage.getItem('screen.height')) === height ) {
         // not really
         debug.log('no resolution change: new and current values are identical', 'red');
     } else {
@@ -45,7 +49,7 @@ function changeScreenDimension ( width, height ) {
 
         // restore visibility
         document.body.style.display = '';
-    }
+    }*/
 }
 
 
