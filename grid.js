@@ -20,7 +20,7 @@ module.exports = window.grid = {
     /** @type {CanvasRenderingContext2D} */
     ctx: null,
 
-    lineWidth: 0.9,
+    lineWidth: 1,
 
     // content middle point
     centerX: 0,
@@ -35,7 +35,7 @@ module.exports = window.grid = {
     cursorY: 0,
 
     // list of click points
-    points: localStorage.getItem('grid.points') || [],
+    points: JSON.parse(localStorage.getItem('grid.points') || '[]'),
 
     // points to snap
     snaps: [],
@@ -48,7 +48,7 @@ module.exports = window.grid = {
         // current execution context
         var self = this;
 
-        this.$canvas = window.$develop.appendChild(document.createElement('canvas'));
+        this.$canvas = document.body.appendChild(document.createElement('canvas'));
         this.ctx = this.$canvas.getContext('2d');
 
         // apply size
@@ -158,7 +158,7 @@ module.exports = window.grid = {
         }
         this.repaint();
         this.drawPointer();
-        localStorage.setItem('grid.points', this.points);
+        localStorage.setItem('grid.points', JSON.stringify(this.points));
     },
 
 
@@ -187,11 +187,11 @@ module.exports = window.grid = {
 
         // draw safe zone borders
         ctx.strokeStyle = 'red';
-        ctx.strokeRect(metrics.availLeft, metrics.availTop, metrics.availWidth, metrics.availHeight);
+        ctx.strokeRect(metrics.availLeft + 0.5, metrics.availTop + 0.5, metrics.availWidth, metrics.availHeight);
 
         // all clicked crosses
         this.points.forEach(function ( point ) {
-            self.drawCross(point, {color: 'green', mark: 5});
+            self.drawCross(point, {color: 'green', mark: 3});
         });
     },
 
@@ -263,24 +263,24 @@ module.exports = window.grid = {
 
         ctx.beginPath();
         // horizontal line
-        ctx.moveTo(0, point.y);
-        ctx.lineTo(metrics.width, point.y);
+        ctx.moveTo(0, point.y + 0.5);
+        ctx.lineTo(metrics.width, point.y + 0.5);
         // vertical line
-        ctx.moveTo(point.x, 0);
-        ctx.lineTo(point.x, metrics.height);
+        ctx.moveTo(point.x + 0.5, 0);
+        ctx.lineTo(point.x + 0.5, metrics.height);
         // draw
         ctx.stroke();
 
         // center mark
         if ( options.mark ) {
-            ctx.lineWidth = 1.5;
+            ctx.lineWidth = 3;
             ctx.beginPath();
             // horizontal line
-            ctx.moveTo(point.x - options.mark, point.y);
-            ctx.lineTo(point.x + options.mark, point.y);
+            ctx.moveTo(point.x - options.mark + 0.5, point.y + 0.5);
+            ctx.lineTo(point.x + options.mark + 0.5, point.y + 0.5);
             // vertical line
-            ctx.moveTo(point.x, point.y - options.mark);
-            ctx.lineTo(point.x, point.y + options.mark);
+            ctx.moveTo(point.x + 0.5, point.y - options.mark + 0.5);
+            ctx.lineTo(point.x + 0.5, point.y + options.mark + 0.5);
             // draw
             ctx.stroke();
             ctx.lineWidth = this.lineWidth;
