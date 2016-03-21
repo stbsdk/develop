@@ -67,7 +67,7 @@ events.load = function () {
 
     grid.init();
 
-    if ( localStorage.getItem('grid.active') ) {
+    if ( localStorage.getItem('grid.active') === 'true' ) {
         grid.show();
     }
 
@@ -119,7 +119,7 @@ events.keydown = function ( event ) {
                 grid.show();
             }
             debug.log('show grid: ' + grid.active, 'red');
-            localStorage.setItem('grid.active', grid.active);
+            localStorage.setItem('grid.active', grid.active.toString());
             break;
 
         // numpad 6
